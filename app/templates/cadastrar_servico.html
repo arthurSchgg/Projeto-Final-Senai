@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Serviço</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro_servicos.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    {% include 'componentes/header/header.html' %}
+    {% include 'componentes/titulos/seta_voltar_servicos.html' %}
+
+    <div class="container-produto">
+        <div class="box-branca">
+
+            <h2 class="titulo-box">Cadastro de Serviço</h2>
+
+            <form action="{{ url_for('cadastrar_servico') }}" method="POST" enctype="multipart/form-data">
+
+                <div class="conteudo-sobre-box">
+
+                    <div class="campos-direita">
+
+                        <!-- Linha 1: Nome e Categoria -->
+                        <div class="linha-1">
+                            <div class="campo nome-servico">
+                                {% set label = 'Nome do Serviço' %}
+                                {% set name = 'nome' %}
+                                {% set id = 'nome' %}
+                                {% include 'componentes/boxs/box_nome_servico.html' %}
+                            </div>
+
+                            <div class="campo categoria-servico">
+                                {% set label = 'Categoria' %}
+                                {% set name = 'categoria' %}
+                                {% set id = 'categoria' %}
+                                {% set options = [('transporte','Transporte'),('limpeza','Limpeza'),('seguranca','Segurança')] %}
+                                {% include 'componentes/boxs/dropdown_categoria.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Campos específicos por categoria -->
+
+                        <!-- Transporte (3 campos) -->
+                        <div id="campos-transporte-pequeno" class="linha-transporte campos-especificos">
+                            <div class="linha t-linha-2">
+                                <div class="campo tipo-veiculo">
+                                    {% set label = 'Tipo de Veículo' %}
+                                    {% set name = 'tipo_veiculo' %}
+                                    {% set id = 'tipo_veiculo' %}
+                                    {% include 'componentes/boxs/dropdown_tipo_veiculo.html' %}
+                                </div>
+
+                               
+
+                                <div class="campo preco-diaria">
+                                    {% set name = 'preco_diaria' %}
+                                    {% set id = 'preco_diaria' %}
+                                    {% set disabled = true %}
+                                    {% include 'componentes/boxs/box_preco_diaria.html' %}
+                                </div>
+                            </div>
+                        </div>
+
+                     
+
+                    
+
+                        <!-- Linha 2: Descrição -->
+                        <div class="linha-2">
+                            <div class="campo descricao-servico">
+                                {% set label = 'Descrição' %}
+                                {% set name = 'descricao' %}
+                                {% set id = 'descricao' %}
+                                {% include 'componentes/boxs/box_descricao.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="linha-botao">
+                            {% set texto = "Voltar" %}
+                            {% set url_destino = "/gestao_servico" %}
+                            {% include 'componentes/botoes/botao_voltar.html' %}
+
+                            {% set texto = "Salvar" %}
+                            {% include 'componentes/botoes/botao_cadastrar_servicos.html' %}
+                        </div>
+
+                    </div> <!-- fecha campos-direita -->
+
+                </div> <!-- fecha conteudo-sobre-box -->
+
+            </form>
+
+        </div> <!-- fecha box-branca -->
+    </div> <!-- fecha container-produto -->
+
+<script src="{{ url_for('static', filename='js/cadastrar_servicos.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="{{ id or 'preco_diaria' }}">Preço da diária</label>
+  <input 
+    type="text" 
+    id="{{ id or 'preco_diaria' }}" 
+    name="{{ name or 'preco_diaria' }}" 
+    placeholder="{{ placeholder or 'Digite o preço da diária' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-preco-diaria"
+    {% if disabled %}disabled{% endif %}
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_preco_diaria.css') }}">

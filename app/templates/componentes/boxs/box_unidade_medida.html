@@ -1,0 +1,28 @@
+<div class="dropdownUnidadeMedida">
+  <label for="{{ id or 'unidade_medida' }}">Unidade de Medida</label>
+
+  <div class="dropdownUnidadeMedida-btn">
+    <span class="selected-text">
+      {% if selected_value %}
+        {% for val, txt in options %}
+          {% if val == selected_value %}{{ txt }}{% endif %}
+        {% endfor %}
+      {% else %}
+        Selecione...
+      {% endif %}
+    </span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdownUnidadeMedida-content">
+    {% for value, text in options %}
+      <div class="dropdownUnidadeMedida-item" data-value="{{ value }}">{{ text }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'unidade_medida' }}" id="{{ id or 'unidade_medida' }}" value="{{ selected_value or '' }}">
+</div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_unidade_medida.css') }}">
+<script src="{{ url_for('static', filename='js/box_unidade_medida.js') }}"></script>

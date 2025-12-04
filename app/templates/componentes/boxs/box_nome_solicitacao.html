@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="{{ id or 'nome' }}">Nome do professor</label>
+  <input 
+    type="text" 
+    id="{{ id or 'nome' }}" 
+    name="{{ name or 'nome' }}" 
+    placeholder="{{ placeholder or 'Digite o nome do professor' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-nome"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_nome.css') }}">

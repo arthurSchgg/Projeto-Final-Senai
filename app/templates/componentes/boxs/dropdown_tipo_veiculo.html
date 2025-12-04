@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_tipo_veiculo.css') }}">
+
+<div class="dropdownTipo">
+  <!-- Label do dropdown -->
+  <label for="{{ id or 'tipo_veiculo' }}" class="dropdown-titulo">{{ label or 'Tipo de Veículo' }}</label>
+
+  <!-- Botão do dropdown -->
+  <div class="dropdownTipo-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">Selecione...</span>
+    <span class="arrow"></span>
+  </div>
+
+  <!-- Conteúdo do dropdown -->
+  <div class="dropdownTipo-content">
+    {% for tipo in tipos_veiculo %}
+        <div class="dropdownTipo-item" data-value="{{ tipo.id }}">{{ tipo.nome }}</div>
+    {% endfor %}
+  </div>
+
+  <!-- Input escondido -->
+  <input type="hidden" name="{{ name or 'tipo_veiculo' }}" id="{{ id or 'tipo_veiculo' }}" value="" disabled>
+</div>
+
+<script src="{{ url_for('static', filename='js/dropdown_tipo_veiculo.js') }}"></script>

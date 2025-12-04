@@ -1,0 +1,19 @@
+<div class="dropdownCategoria">
+  <label for="{{ id or 'categoria' }}">{{ label or 'Categoria' }}</label>
+
+  <div class="dropdownCategoria-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">Selecione...</span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdownCategoria-content">
+    {% for value, text in options %}
+      <div class="dropdownCategoria-item" data-value="{{ value }}">{{ text }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'categoria' }}" id="{{ id or 'categoria' }}" value="">
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_categoria.css') }}">
+<script src="{{ url_for('static', filename='js/dropdown_categoria.js') }}"></script>

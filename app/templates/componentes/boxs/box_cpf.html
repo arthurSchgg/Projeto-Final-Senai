@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="{{ id or 'cpf' }}">CPF</label>
+  <input 
+    type="text" 
+    id="{{ id or 'cpf' }}" 
+    name="{{ name or 'cpf' }}" 
+    placeholder="{{ placeholder or 'Digite o CPF' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-cpf"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_cpf.css') }}">

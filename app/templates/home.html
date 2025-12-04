@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+    <!-- Inclui o header -->
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    {% include 'componentes/header/header.html' %}
+
+    <main>
+        <!-- <p>Você está logado no sistema. 🎉</p> -->
+        <div class="cards-wrapper">
+            <div class="cards-container">
+
+                <a href="{{ url_for('gestao') }}" class="card">
+                    <img src="{{ url_for('static', filename='images/gestao.png') }}" alt="Fluxee Logo" class="logo">
+                    <p>GESTÃO</p>
+                </a>
+
+
+                <a href="{{ url_for('solicitacoes') }}" class="card">
+                    <img src="{{ url_for('static', filename='images/solicitacao.png') }}" alt="Fluxee Logo" class="logo">
+                    <p>SOLICITAÇÕES</p>
+                </a>
+
+                <a href="{{ url_for('dashboard') }}" class="card">
+                    <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Fluxee Logo" class="logo">
+                    <p>DASHBOARD</p>
+                </a>
+
+            </div>
+        </div>
+
+
+
+    </main>
+</body>
+</html>

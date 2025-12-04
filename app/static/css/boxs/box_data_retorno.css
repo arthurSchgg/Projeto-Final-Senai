@@ -1,0 +1,17 @@
+.input-data-retorno {
+  width: 150px;
+  height: 47px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #333;
+}
+
+.input-data-retorno:focus {
+  border-color: #E57C3A;
+  box-shadow: 0 0 4px rgba(229, 124, 58, 0.4);
+}

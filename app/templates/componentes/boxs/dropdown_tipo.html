@@ -1,0 +1,28 @@
+<div class="dropdownTipo">
+  <label for="{{ id or 'tipo' }}">{{ label or 'Tipo de Produto' }}</label>
+
+  <div class="dropdownTipo-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">
+      {% if selected_value %}
+        {% for val, txt in options %}
+          {% if val == selected_value %}{{ txt }}{% endif %}
+        {% endfor %}
+      {% else %}
+        Selecione...
+      {% endif %}
+    </span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdownTipo-content">
+    {% for value, text in options %}
+      <div class="dropdownTipo-item" data-value="{{ value }}">{{ text }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'tipo' }}" id="{{ id or 'tipo' }}" value="{{ selected_value or '' }}">
+</div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_tipo.css') }}">
+<script src="{{ url_for('static', filename='js/dropdown_tipo.js') }}"></script>

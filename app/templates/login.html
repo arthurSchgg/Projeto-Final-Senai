@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "componentes/boxs/boxLogin.html" import box %}
+{% from "componentes/botoes/botaoLogin.html" import button %}
+
+{% block content %}
+<div class="login-container">
+  
+  <!-- LADO ESQUERDO (IMAGEM ILUSTRATIVA) -->
+  <div class="login-image">
+    <img src="{{ url_for('static', filename='images/fundo.png') }}" alt="Imagem ilustrativa">
+  </div>
+
+  <!-- LADO DIREITO (FORMULÁRIO COM LOGO) -->
+  <div class="login-form">
+    <img src="{{ url_for('static', filename='images/fluxee.png') }}" alt="fluxee" class="logo">
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <!-- Email -->
+      {{ box(form.email, "Digite seu e-mail") }}
+
+      <!-- Senha -->
+      {{ box(form.senha, "Digite sua senha") }}
+
+      <!-- Texto de cadastro -->
+      <p class="cadastro-text">
+        Não tem conta? 
+        <a href="{{ url_for('cadastro') }}">Cadastre-se</a>
+      </p>
+
+      <!-- Botão -->
+      <div class="form-group">
+        {{ button(form.btnSubmit) }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

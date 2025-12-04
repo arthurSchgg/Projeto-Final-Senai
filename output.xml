@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.5 on win32)" generated="2025-12-04T18:46:31.893359" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste" source="C:\Users\arthur_schlichting\Downloads\Projeto-Final-Senai-main\teste.robot">
+<test id="s1-t1" name="Login Com Sucesso" line="23">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:32.090098" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-04T18:46:32.090098" elapsed="1.540455"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-04T18:46:33.635700" elapsed="0.056618"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-04T18:46:33.692318" elapsed="0.046241"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:33.739162" level="INFO">Typing text 'arthurm2804@gmail.com' into text field 'name=email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:33.738559" elapsed="0.258114"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:33.997681" level="INFO">Typing password into text field 'name=senha'.</msg>
+<msg time="2025-12-04T18:46:34.042299" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:33.996673" elapsed="0.088128"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:34.084801" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:34.084801" elapsed="0.802166"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Login realizado com sucesso!</arg>
+<arg>5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-04T18:46:34.887965" elapsed="0.054040"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-04T18:46:34.943027" elapsed="2.246625"/>
+</kw>
+<doc>Acessa a tela de login, preenche dados válidos e verifica o redirecionamento.</doc>
+<status status="PASS" start="2025-12-04T18:46:32.090098" elapsed="5.099554"/>
+</test>
+<test id="s1-t2" name="Login Com Senha Incorreta" line="42">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:37.193921" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-04T18:46:37.192936" elapsed="1.396279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:38.589540" level="INFO">Typing text 'arthurm2804@gmail.com' into text field 'name=email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:38.589540" elapsed="0.138788"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:38.729776" level="INFO">Typing password into text field 'name=senha'.</msg>
+<msg time="2025-12-04T18:46:38.753874" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>senha_errada</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:38.729776" elapsed="0.060470"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-04T18:46:38.791767" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-04T18:46:38.790767" elapsed="0.080451"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Senha incorreta!</arg>
+<arg>5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-04T18:46:38.871218" elapsed="0.542736"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-04T18:46:39.413954" elapsed="2.180878"/>
+</kw>
+<doc>Testa o bloqueio de senha errada.</doc>
+<status status="PASS" start="2025-12-04T18:46:37.191916" elapsed="4.402916"/>
+</test>
+<doc>Teste de Login para o Projeto Fluxee</doc>
+<status status="PASS" start="2025-12-04T18:46:31.894411" elapsed="9.701416"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste" id="s1" pass="2" fail="0" skip="0">Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro_solicitacoes.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    {% include 'componentes/header/header.html' %}
+    {% include 'componentes/titulos/seta_voltar_solicitacao.html' %}
+
+    <div class="container-produto">
+        <div class="box-branca">
+
+            <h2 class="titulo-box">Cadastro de Solicitação</h2>
+
+            <!-- FORM COMEÇA AQUI -->
+            <form action="{{ url_for('adicionar_solicitacao') }}" method="POST" enctype="multipart/form-data">
+
+                <div class="conteudo-sobre-box">
+
+                 
+                    <div class="campos-direita">
+
+                        <!-- Linha 1 -->
+                        <div class="linha-1">
+                            <div class="campo nome">
+                                {% include 'componentes/boxs/box_nome_solicitacao.html' %}
+                            </div>
+
+                            <div class="campo disciplina">
+                                {% set label = 'Disciplina' %}
+                                {% set name = 'disciplina' %}
+                                {% set id = 'disciplina' %}
+                                {% set options = disciplinas %}
+                                {% include 'componentes/boxs/dropdown_disciplina.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Linha 2 -->
+                        <div class="linha-2">
+                            <div class="campo tipo-produto">
+                                {% set label = 'Tipo de Produto' %}
+                                {% set name = 'produto_id' %}
+                                {% set id = 'produto_id' %}
+                                {% set options = produtos    %}
+                                {% include 'componentes/boxs/dropdown_tipo_produto.html' %}
+                            </div>
+
+                             
+                            <div class="campoData-entrada">
+                                {% set name = 'data_entrada_str' %}
+                                {% set id = 'data_entrada_str' %}
+                                {% include 'componentes/boxs/box_data_entrada.html' %}
+                            </div>
+
+                            <div class="quantidade-unid">
+                                <div class="campo quantidade">
+                                    {% set name = 'quantidade' %}
+                                    {% set id = 'quantidade' %}
+                                    {% include 'componentes/boxs/box_quantidade.html' %}
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="linha-3">
+                            <div class="campo finalidade">
+                                {% set name = 'finalidade' %}
+                                {% set id = 'finalidade' %}
+                                {% include 'componentes/boxs/box_finalidade.html' %}
+                            </div>
+                        </div>
+                  
+                    </div> <!-- fecha campos direita -->
+
+                </div> <!-- fecha conteudo -->
+
+                <!-- Botões dentro do FORM -->
+                <div class="linha-botao">
+                    {% set texto = "Voltar" %}
+                    {% set url_destino = "/gestao" %}
+                    {% include 'componentes/botoes/botao_voltar.html' %}
+                    
+                    {% set texto = "Salvar" %}
+                    {% include 'componentes/botoes/botao_cadastrar_solicitacao.html' %}
+
+                </div>
+
+            </form>
+            <!-- FORM TERMINA AQUI -->
+
+        </div>
+
+        {% if erros %}
+            <div class="erros-form" style="color:red; margin-bottom: 20px;">
+                <ul>
+                {% for erro in erros %}
+                    <li>{{ erro }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+
+    </div> <!-- fecha .container-produto -->
+
+<script src="{{ url_for('static', filename='js/cadastrar_solicitacao.js') }}"></script>
+
+</body>
+</html>

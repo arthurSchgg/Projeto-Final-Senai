@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="{{ id or 'quantidade_passageiros' }}">Quantidade de Ônibus</label>
+  <input 
+    type="number" 
+    id="{{ id or 'quantidade_passageiros' }}" 
+    name="{{ name or 'quantidade_passageiros' }}" 
+    placeholder="{{ placeholder or 'Informe a quantidade de ônibus' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-qt-onibus"
+    {% if disabled %}disabled{% endif %}
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_qt_onibus.css') }}">

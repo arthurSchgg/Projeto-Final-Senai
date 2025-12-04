@@ -1,0 +1,16 @@
+<div class="solicitacao-card">
+    <div class="header">
+        <span class="id-solicitacao">Solicitação Transporte {{ solicitacao.id }}</span>
+        <span class="status {{ solicitacao.status | lower }}">{{ solicitacao.status }}</span>
+    </div>
+    <div class="content">
+        <p><strong>Solicitante:</strong> {{ solicitacao.solicitante }}</p>
+        <p><strong>Serviço ID:</strong> {{ solicitacao.servico_id }}</p>
+        <p><strong>Data de Saída:</strong> {{ solicitacao.data_saida }}</p>
+        <p><strong>Data de Retorno:</strong> {{ solicitacao.data_retorno }}</p>
+    </div>
+    <div class="actions">
+        <button class="btn-cancelar">Cancelar</button>
+        <button class="btn-aceitar">Aceitar</button>
+    </div>
+</div>

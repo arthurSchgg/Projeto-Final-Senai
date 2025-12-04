@@ -1,0 +1,19 @@
+.btn-voltar {
+    display: inline-flex;           /* para centralizar texto e ícones */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;          /* remove sublinhado do link */
+    width: 145px;
+    height: 48px;
+    background-color: #C9C9C9;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #a39d99;
+    transform: translateY(-1px);
+}

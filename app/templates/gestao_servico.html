@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gestao_servicos.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    <!-- Inclui o header -->
+    {% include 'componentes/header/header.html' %}
+
+    <!-- Inclui o título -->
+    {% with texto="GESTÃO" %}
+        {% include 'componentes/titulos/titulo.html' %}
+    {% endwith %}
+
+    <!-- Botão de adicionar serviço -->
+    {% include 'componentes/botoes/botao_gestao_add_servico.html' %}
+    
+    <!-- Inclui outros botões de gestão -->
+    {% include 'componentes/botoes/botaogestao.html' %}
+
+    <!-- BOX BRANCA PARA SERVIÇOS -->
+    <div class="gestao-container">
+        <div class="gestao-box">
+
+            <h2 class="gestao-box-title">Serviços Cadastrados</h2>
+
+            <!-- Tabela de Serviços -->
+            <div class="gestao-tabela">
+
+                <!-- Cabeçalho da tabela -->
+                <div class="gestao-cabecalho">
+                    <span class="coluna-produto">SERVIÇO</span>
+                    <span class="coluna-categoria">CATEGORIA</span>
+                    <span class="coluna-descricao">DESCRIÇÃO</span>
+                </div>
+
+                <!-- Linhas dinâmicas -->
+                {% for s in servicos %}
+                    <div class="gestao-linha linha-dinamica">
+                        <span class="linha-produto">{{ s.nome }}</span>
+                        <span class="linha-categoria">{{ s.categoria }}</span>
+                        <span class="linha-descricao">{{ s.descricao }}</span>
+                        <span class="linha-acao">
+                            <button class="btn-solicitar" 
+                                    data-categoria="{{ s.categoria }}" 
+                                    data-nome="{{ s.nome }}"
+                                    data-service-id="{{ s.id }}">
+                                Solicitar
+                            </button>
+                        </span>
+                    </div>
+                {% endfor %}
+
+            </div> <!-- fim da tabela -->
+
+        </div> <!-- fim da gestao-box -->
+    </div> <!-- fim da gestao-container -->
+
+    <!-- Modal de Solicitação -->
+    <div id="modal-solicitar" class="modal">
+        <div class="modal-conteudo">
+
+            <span class="fechar">&times;</span>
+
+            <h3 id="modal-titulo">Solicitar Serviço</h3>
+
+            <form id="form-solicitar" method="POST" action="{{ url_for('gestao_servico') }}">
+                <!-- Campos Transporte -->
+                <div class="campos-transporte campos-especificos categoria transporte" >
+                    {% include 'componentes/boxs/box_data_saida.html' %}
+                    {% include 'componentes/boxs/box_data_retorno.html' %}
+                </div>
+
+                <!-- Campos Limpeza -->
+                <div class="campos-limpeza campos-especificos categoria limpeza">
+                    {% set tempos = ['Manhã', 'Tarde', 'Noite', 'Integral'] %}
+                    {% include 'componentes/boxs/dropdown_tempo.html' %}
+                    {% include 'componentes/boxs/box_ambiente.html' %}
+                    {% set frequencias = ['Diária', 'Semanal', 'Quinzenal', 'Mensal'] %}
+                    {% include 'componentes/boxs/dropdown_frequencia.html' %}
+                </div>
+
+                <!-- Campos Segurança -->
+                <div class="campos-seguranca campos-especificos categoria seguranca">
+                    {% include 'componentes/boxs/box_data_inicio.html' %}
+                    {% include 'componentes/boxs/box_area_atuacao.html' %}
+                    {% set options_turno = [('Manhã','Manhã'),('Tarde','Tarde'),('Noite','Noite'),('24 Horas','24 Horas')] %}
+                    {% include 'componentes/boxs/dropdown_turno.html' %}
+                </div>
+
+                {% with texto="Enviar Solicitação" %}
+                    {% include 'componentes/botoes/botao_enviar.html' %}
+                {% endwith %}
+
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/gestao_servico.js') }}"></script>
+
+</body>
+</html>

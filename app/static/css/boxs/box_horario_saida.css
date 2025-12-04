@@ -1,0 +1,32 @@
+.input-horario-saida {
+  width: 157px;
+  height: 27px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-horario-saida:focus {
+  border-color: #E57C3A;
+  box-shadow: 0 0 4px rgba(229, 124, 58, 0.4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* empilha o label e o input */
+  align-items: flex-start; /* alinha tudo à esquerda */
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 6px; /* espaço entre o label e o input */
+  display: block;
+}

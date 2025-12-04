@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    <!-- HEADER -->
+    {% include 'componentes/header/header.html' %}
+
+    <!-- TÍTULO -->
+    {% with texto="GESTÃO" %}
+        {% include 'componentes/titulos/titulo.html' %}
+    {% endwith %}
+
+    <!-- BOTÃO DE GESTÃO -->
+    {% include 'componentes/botoes/botaogestao.html' %}
+
+    <!-- CONTAINER GERAL -->
+    <div class="gestao-container">
+
+        <!-- BOX BRANCA -->
+        <div class="gestao-box">
+
+            <h2 class="gestao-box-title">Status do Estoque</h2>
+
+            <!-- TABELA DO ESTOQUE (ainda sem dados) -->
+            <div class="gestao-tabela">
+
+                <!-- Cabeçalho das colunas -->
+                <div class="gestao-cabecalho">
+                    <span class="coluna-produto">PRODUTO</span>
+                    <span class="coluna-categoria">CATEGORIA</span>
+                    <span class="coluna-estoque">ESTOQUE</span>
+                    <span class="coluna-fornecedor">FORNECEDOR</span>
+                </div>
+
+                <div class="linha-titulos"></div>
+
+            
+                {% for p in produtos %}
+                    <div class="gestao-linha linha-dinamica">
+                        <span class="linha-produto">
+                            {% if p.imagem %}
+                                <img src="{{ url_for('static', filename='uploads/produtos/' + p.imagem) }}" 
+                                    alt="{{ p.nome }}" class="produto-img">
+                            {% else %}
+                                <div class="produto-img-placeholder"></div>
+                            {% endif %}
+                            {{ p.nome }}
+                        </span>
+                        <span class="linha-categoria">{{ p.tipo.nome if p.tipo else '' }}</span>
+                        <span class="linha-estoque">
+                            {{ p.quantidade }} {{ p.unidade_medida.nome if p.unidade_medida else '' }}
+                        </span>
+                        <span class="linha-fornecedor">{{ p.fornecedor.nome if p.fornecedor else '' }}</span>
+                        <span class="linha-acoes">
+                            <a href="{{ url_for('editar_produto', id=p.id) }}" class="btn-edit">
+                                <img src="{{ url_for('static', filename='icons/edit.png') }}" alt="editar">
+                            </a>
+                            <a href="javascript:void(0);" 
+                            class="btn-delete" 
+                            data-nome="{{ p.nome }}" 
+                            data-link="{{ url_for('deletar_produto', id=p.id) }}">
+                                <img src="{{ url_for('static', filename='icons/delete.png') }}" alt="excluir">
+                            </a>
+                        </span>
+                    </div>
+                {% endfor %}
+
+
+                {% if mostrar_paginacao %}
+                <div class="paginacao">
+                    {% if pagination.has_prev %}
+                        <a href="{{ url_for('gestao', page=pagination.prev_num) }}">&laquo; Anterior</a>
+                    {% endif %}
+
+                    {% for p in range(1, pagination.pages + 1) %}
+                        {% if p ==  pagina_atual %}
+                            <span class="ativo">{{ p }}</span>
+                        {% else %}
+                            <a href="{{ url_for('gestao', page=p) }}">{{ p }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if pagination.has_next %}
+                        <a href="{{ url_for('gestao', page=pagination.next_num) }}">Próximo &raquo;</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>            
+
+        <!-- BOTÃO À DIREITA -->
+        <div class="gestao-botao">
+            {% include 'componentes/botoes/botao_gestao_add_produto.html' %}
+        </div>
+    </div>
+
+    <div id="modal-excluir" class="modal">
+        <div class="modal-conteudo">
+            <p id="mensagem-excluir">Tem certeza que deseja excluir este produto?</p>
+            <div class="botoes-modal">
+                <button id="btn-cancelar">Cancelar</button>
+                <button id="btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para visualizar imagem -->
+    <div id="imagem-modal" class="modal">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="img-modal">
+        <div id="caption"></div>
+    </div>
+        
+<script src="{{ url_for('static', filename='js/box_confirmacao.js') }}"></script>
+
+</body>
+</html>

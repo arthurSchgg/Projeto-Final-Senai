@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #FFF6F0;
+    }
+
+    h2 {
+      color: #f76c4f;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .card {
+        width: 85%;
+      background: white;
+      height: 75px;
+      padding: 18px;
+      padding-inline: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 5px;
+    }
+    .number {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .card .label {
+        font-size: 14px;
+      color: #888;
+    }
+    .chart-container {
+      width: 400px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;        
+      gap: 20px;
+
+    }
+    .chart-card{
+        margin-block: 10px;
+      width: 320px;
+        height: fit-content;
+              background: white;
+        padding: 30px;
+        display: flex;
+        border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .users-section {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        padding: 20px;
+        width: 350px; /* Adjust width as needed */
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        overflow-y: auto; /* Enable scrolling for many users */
+    }
+    .users-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .user-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+        padding-left: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    .user-item:last-child {
+        border-bottom: none;
+    }
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .user-info .role {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+    }
+    .user-info .name-time {
+        font-size: 12px;
+        color: #888;
+    }
+    .chart-container-bar {
+        flex-direction: row;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        padding: 30px;
+        max-height: 500px;
+        width: 950px; /* Adjust width as needed */
+        height: fit-content;
+    }
+    h3{
+        margin: 0
+    }
+    .chart-container-bar h3 {
+        color: #333;
+        margin-bottom:  15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+ 
+
+    /* Telas grandes >=1800px */
+
+    @media (max-width: 2000px) {
+    .card {
+        width: 70%;
+        height: 7vh;
+    }
+    .chart-card {
+      width: 300px;
+    
+    }
+    .chart-container-bar {
+        padding: 30px;
+        max-height: 450px;
+        width: 820px; /* Adjust width as needed */
+        height: fit-content;
+    }
+}
+
+@media (max-width: 1800px) {
+      .card {
+        width: 65%;
+        height: 7vh;
+    }
+    .chart-card {
+      width: 280px;
+    
+    }
+    .chart-container-bar {
+        padding: 30px;
+        max-height: 420px;
+        width: 740px; /* Adjust width as needed */
+        height: fit-content;
+    }
+}
+
+@media (max-width: 1600px) {
+      .card {
+        width: 65%;
+        height: 7vh;
+    }
+    .chart-card {
+      width: 260px;
+    
+    }
+    .chart-container-bar {
+        padding: 30px;
+        max-height: 420px;
+        width: 640px; /* Adjust width as needed */
+        height: fit-content;
+    }
+
+    .lado-esquedo{
+        margin-left: -5vh;
+    }
+
+    .lado-direito{
+        margin-left: 3vh;
+    }
+}
+
+@media (max-width: 1400px) {
+      .card {
+        width: 62%;
+        height: 7vh;
+    }
+    .chart-card {
+      width: 240px;
+    
+    }
+    .chart-container-bar {
+        padding: 30px;
+        max-height: 400px;
+        width: 600px; 
+        height: fit-content;
+    }
+
+    .lado-esquedo{
+        margin-left: -5vh;
+    }
+
+    .lado-direito{
+        margin-left: 2vh;
+    }
+
+    
+    .users-section{
+        width: 280px;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    .container{
+        flex-direction: column;
+    }
+    
+    
+    .lado-direito{
+        transform:none;
+        margin-left: 50px;
+        transform: 0;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row !important;
+    }
+    .lado-esquedo{
+         margin-left:0;
+    }
+}
+
+  </style>
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    <!-- Inclui o header -->
+    {% include 'componentes/header/header.html' %}
+{% with texto="DASHBOARD" %}
+        {% include 'componentes/titulos/titulo.html' %}
+    {% endwith %}
+    <div class="container" style="display: flex; gap: 20px; margin: 20px; margin-inline: 5vw; " >
+        <!-- Left Column (Cards + Bar Chart) -->
+        <div class="lado-esquedo" style="width: 75vw; display: flex; flex-direction: column; gap: 10px;">
+            <div class="cards">
+                <div class="card">
+                    <div class="label">Total de serviços</div>
+                    <div class="number" id="servico"></div>
+                </div>
+                <div class="card">
+                    <div class="label">Total de Produtos</div>
+                    <div class="number" id="produto"></div>
+                </div>
+                <div class="card">
+                    <div class="label">Solicitações</div>
+                    <div class="number" id="solicitacao"></div>
+                </div>
+                <div class="card">
+                    <div class="label">Total de Fornecedores</div>
+                    <div class="number" id="fornecedor"></div>
+                </div>
+                <div class="card">
+                    <div class="label">Quantidade de usuários</div>
+                    <div class="number" id="user"></div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 20px;">
+            
+            <div class="users-section">
+                <h3>Usuários do sistema</h3>
+                <div style="max-height: 300px; overflow-y: auto;">
+                {% for user in all_users %}
+                
+                <div class="user-item">
+                    <div class="user-avatar">
+                        {% if user.imagem_perfil %}
+                        <img src="{{ url_for('static', filename='uploads/usuarios/' + user.imagem_perfil) }}" alt="{{ user.nome }}">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/default_avatar.png') }}" alt="Default Avatar">
+                        {% endif %}
+                    </div>
+                    <div class="user-info">
+                        <span class="role">{{ user.tipo_usuario }}</span>
+                        <span class="name-time">{{ user.nome }} - 2hrs atrás</span> <!-- Placeholder for time -->
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="chart-container-bar">
+                <h3>Solicitações por prof</h3>
+                <canvas id="solicitacoesProfChart"></canvas>
+                
+            </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Users List + Doughnut Charts) -->
+         <div class="container-lado-direito" style="width: 25vw; position: relative;">
+            <div class="lado-direito" style="position: absolute; left: 50% ; transform: translateX(-50%); top: -5vh; display: flex; flex-direction: column; gap: 20px;">
+                
+                <div class="chart-card">
+                    <div class="chart-container">
+                        <div class="number">Categoria serviços</div>
+                        <canvas id="serviceChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-container">
+                        <div class="number" style="font-weight:bold; margin-bottom:20px;">Produtos por tipo</div>
+                        <canvas id="tipoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Set values
+        const tots_ = {
+            servico: {{ tots.servico | tojson }},
+            fornecedor: {{ tots.fornecedor | tojson }},
+            user: {{ tots.user | tojson }},
+            produto: {{ tots.produto | tojson }},
+            solicitacao: {{ tots.solicitacao | tojson }}
+        };
+
+        document.getElementById('servico').innerText = tots_.servico;
+        document.getElementById('produto').innerText = tots_.produto;
+        document.getElementById('solicitacao').innerText = tots_.solicitacao;
+        document.getElementById('fornecedor').innerText = tots_.fornecedor;
+        document.getElementById('user').innerText = tots_.user;
+
+        // Chart.js for Categoria serviços
+        const ctx = document.getElementById('serviceChart').getContext('2d');
+        const serviceChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['servico', 'produto', 'solicitacao', 'fornecedor', "user"],
+                datasets: [{
+                    data: [tots_.servico, tots_.produto, tots_.solicitacao, tots_.fornecedor, tots_.user],
+                    backgroundColor: ['#FF4C4C', '#FFD93D', '#4CB3FF', '#6AD28D'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '84%',
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Chart.js for Produtos por tipo
+        const tipo_counts_ = {{ tipo_counts | tojson }};
+        console.log(tipo_counts_)
+        const labels = tipo_counts_.map(item => item.tipo);
+        const data = tipo_counts_.map(item => item.count);
+        const backgroundColors = ['#FF6384', '#36A2EB', '#FFCE56', '#6AD28D', '#FFA500'];
+        const ctx2 = document.getElementById('tipoChart').getContext('2d');
+        const tipoChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: backgroundColors.slice(0, labels.length),
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '84%',
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Chart.js for Solicitacoes por prof (Bar Chart)
+        const prof_labels = {{ prof_labels | tojson }};
+        const prof_data = {{ prof_data | tojson }};
+        const ctx3 = document.getElementById('solicitacoesProfChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: prof_labels,
+                datasets: [{
+                    label: 'Número de Solicitações',
+                    data: prof_data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Solicitações'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Professor'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

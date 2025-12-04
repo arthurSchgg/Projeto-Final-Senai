@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+.dropdownUnidadeMedida {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  z-index: 1000;
+  width: 415px;
+}
+
+label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 6px; /* espaço entre o label e o input */
+  display: block;
+}
+
+.dropdownUnidadeMedida-btn {
+  width: 144px; 
+  height: 47px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #333;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdownUnidadeMedida-btn:hover {
+  border-color: #888;
+}
+
+.dropdownUnidadeMedida-btn.open {
+  border-color: #E57C3A;
+  box-shadow: 0 0 4px rgba(229, 124, 58, 0.4);
+}
+
+.dropdownUnidadeMedida-btn .arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #555;
+  border-bottom: 2px solid #555;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.dropdownUnidadeMedida-btn.open .arrow {
+  transform: rotate(135deg);
+}
+
+.dropdownUnidadeMedida-content {
+  margin-top: 5px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 170px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1001;
+}
+
+.dropdownUnidadeMedida-content.show {
+  display: block;
+}
+
+.dropdownUnidadeMedida-item {
+  padding: 10px 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdownUnidadeMedida-item:hover {
+  background-color: #fff2de;
+  color: #222;
+}
+
+.selected-text {
+  flex: 1;
+  color: #333;
+  font-size: 15px;
+}

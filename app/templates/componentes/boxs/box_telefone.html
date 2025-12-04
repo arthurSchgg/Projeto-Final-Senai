@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="{{ id or 'telefone' }}">Telefone</label>
+  <input 
+    type="text" 
+    id="{{ id or 'telefone' }}" 
+    name="{{ name or 'telefone' }}" 
+    placeholder="{{ placeholder or 'Digite o telefone' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-telefone"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_telefone.css') }}">

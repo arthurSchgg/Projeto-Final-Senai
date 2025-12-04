@@ -1,0 +1,252 @@
+/* ==========================
+   GESTÃO DE SERVIÇO – LAYOUT
+   ========================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #FFF6F0;
+}
+
+.gestao-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+/* Box branca */
+.gestao-box {
+    width: 1850px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+/* Título */
+.gestao-box-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Cabeçalho da tabela */
+.gestao-cabecalho {
+    display: flex;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Colunas do cabeçalho em porcentagem */
+.coluna-produto { width: 23%; text-align: left; }
+.coluna-categoria { width: 27%; text-align: center; }
+.coluna-descricao { width: 27%; text-align: center; }
+
+
+/* Linha da tabela */
+.gestao-linha {
+    display: flex;
+    align-items: center;
+    padding: 30px 15px;
+    border-top: 1px solid #ccc;
+    height: auto;
+    background: transparent;
+}
+
+.gestao-linha:last-of-type {
+    margin-bottom: 0;
+}
+
+.gestao-linha .linha-produto { width: 23%;  }
+.gestao-linha .linha-categoria { width: 27%; text-align: center; }
+.gestao-linha .linha-descricao{ width: 27%; text-align: center;}
+.gestao-linha .linha-acao { width: 20%; text-align: right; }
+
+/* Botão Solicitar (exemplo de componente) */
+.btn-solicitar {
+    width: 140px;
+    height: 43px;
+    background-color: #E57C3A;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-solicitar:hover {
+    background-color: #d46e2f;
+    transform: translateY(-1px);
+}
+
+/* Modal de solicitação */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    max-width: 50%;
+    max-height: 80%;
+    border: 2px solid #fff;
+}
+
+/* X para fechar modal */
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    font-size: 42px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    z-index: 10;
+}
+
+.fechar:hover {
+    color: rgb(124, 124, 124);
+}
+
+/* Botões do modal */
+.botoes-modal {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.botoes-modal button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#btn-cancelar {
+    background: #D9D9D9;
+    color: #333;
+}
+
+#btn-confirmar {
+    background: #E57C3A;
+    color: #fff;
+}
+
+/* Paginação */
+.paginacao {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.paginacao a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+}
+
+.paginacao a:hover {
+    background: #ccc;
+}
+
+.paginacao .ativo {
+    font-weight: bold;
+    background: #E57C3A;
+    color: #fff;
+    border-color: #E57C3A;
+}
+
+/* Responsividade */
+
+/* Telas muito largas */
+@media (max-width: 2100px) {
+    .gestao-box {
+        width: 1600px;  /* ajuste que quiser */
+    }
+}
+
+@media (max-width: 1800px) {
+    .gestao-box {
+        width: 1350px;  /* ajuste progressivo */
+    }
+}
+
+@media (max-width: 1600px) {
+    .gestao-box {
+        width: 1200px;  /* ajuste progressivo */
+    }
+}
+
+
+@media (max-width: 1450px) {
+    .gestao-box {
+        width: 1100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .gestao-box {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .gestao-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gestao-box {
+        width: 90%;
+        height: auto;
+    }
+
+    .gestao-botao {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .gestao-box {
+        padding: 25px;
+    }
+
+    .gestao-box-title {
+        text-align: center;
+    }
+
+    .gestao-linha {
+        margin-bottom: 45px;
+    }
+}
+

@@ -1,0 +1,50 @@
+.toast-container {
+    position: fixed;
+    top: 120px; /* você pode ajustar para mais baixo */
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 40px 15px 20px; /* espaço extra à direita para o X */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    min-width: 250px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start; /* texto fica à esquerda */
+    align-items: center;
+}
+
+.toast .btn-fechar {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* centraliza verticalmente */
+}
+
+
+.toast.danger { background-color: #f44336; }
+
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(255,255,255,0.7);
+    width: 100%;
+}

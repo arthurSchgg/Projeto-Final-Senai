@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ id or 'ambiente' }}">Ambiente</label>
+  <input 
+    type="text" 
+    id="{{ id or 'ambiente' }}" 
+    name="{{ name or 'ambiente' }}" 
+    placeholder="{{ placeholder or 'Digite o ambiente' }}" 
+    value="{{ value or '' }}" 
+    class="input-ambiente"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_ambiente.css') }}">

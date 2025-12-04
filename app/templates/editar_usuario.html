@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro_usuarios.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    {% include 'componentes/header/header.html' %}
+    {% include 'componentes/titulos/seta_voltar_usuarios.html' %}
+
+    <div class="usuarios-container">
+        <div class="usuarios-box">
+
+            <h2 class="usuarios-titulo">Editar Usuário</h2>
+
+            <!-- FORM COMEÇA AQUI -->
+            <form action="{{ url_for('editar_usuario', id=usuario.id) }}" method="POST" enctype="multipart/form-data">
+
+                <div class="usuarios-conteudo">
+
+                    <div class="usuarios-campo campo-imagem">
+                        <div class="image-preview" id="imagePreview">
+                            {% if usuario.imagem_perfil %}
+                                <img src="{{ url_for('static', filename='uploads/usuarios/' + usuario.imagem_perfil) }}" alt="Imagem do usuário" style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                            {% else %}
+                                <span>Preview</span>
+                            {% endif %}
+                        </div>
+                        <input type="file" id="imagem_perfil" name="imagem_perfil" accept="image/*" style="display:none;">
+                        <div class="adicionar-imagem-texto" id="adicionarImagem">
+                            {% if usuario.imagem_perfil %}
+                                Alterar imagem
+                            {% else %}
+                                Adicionar imagem
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="usuarios-campos-direita">
+
+                        <!-- Linha 1: Nome, Data Nascimento, Telefone -->
+                        <div class="usuarios-linha-1">
+                            <div class="usuarios-campo usuarios-nome">
+                                {% set value = usuario.nome %}
+                                {% include 'componentes/boxs/box_nome_user.html' %}
+                            </div>
+
+                            <div class="usuarios-campo usuarios-data-nascimento">
+                                {% set value = usuario.data_nascimento.strftime('%Y-%m-%d') if usuario.data_nascimento else '' %}
+                                {% include 'componentes/boxs/box_data_nascimento.html' %}
+                            </div>
+
+                            <div class="usuarios-campo usuarios-telefone">
+                                {% set value = usuario.telefone %}
+                                {% include 'componentes/boxs/box_telefone.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Linha 2: CPF, Email -->
+                        <div class="usuarios-linha-2">
+                            <div class="usuarios-campo usuarios-cpf">
+                                {% set value = usuario.cpf %}
+                                {% include 'componentes/boxs/box_cpf.html' %}
+                            </div>
+
+                            <div class="usuarios-campo usuarios-email">
+                                {% set value = usuario.email %}
+                                {% include 'componentes/boxs/box_email.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Linha 3: Gênero, Tipo de Usuário -->
+                        <div class="usuarios-linha-3">
+                            <div class="usuarios-campo usuarios-genero">
+                                {% set label = 'Gênero' %}
+                                {% set name = 'genero' %}
+                                {% set id = 'genero' %}
+                                {% set selected_value = usuario.genero %}
+                                {% include 'componentes/boxs/dropdown_genero.html' %}
+                            </div>
+
+                            <div class="usuarios-campo usuarios-tipo-usuario">
+                                {% set label = 'Tipo de Usuário' %}
+                                {% set name = 'tipo_usuario' %}
+                                {% set id = 'tipo_usuario' %}
+                                {% set selected_value = usuario.tipo_usuario %}
+                                {% include 'componentes/boxs/dropdown_tipo_usuario.html' %}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+                <div class="usuarios-linha-botao">
+                    {% set texto = "Voltar" %}
+                    {% set url_destino = "/usuarios" %}
+                    {% include 'componentes/botoes/botao_voltar.html' %}
+
+                    {% set texto = "Atualizar" %}
+                    {% include 'componentes/botoes/botao_cadastrar_usuarios.html' %}
+
+                </div>
+
+            </form>
+            <!-- FORM TERMINA AQUI -->
+
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/cadastrar_usuarios.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% macro button(form_field, tipo="primary") %}
+<button type="submit" class="btn btn-{{ tipo }}">
+    {{ form_field.label.text if form_field.label else form_field }}
+</button>
+{% endmacro %}

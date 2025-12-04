@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="{{ id or 'descricao' }}">Descrição</label>
+  <textarea
+    id="{{ id or 'descricao' }}"
+    name="{{ name or 'descricao' }}"
+    placeholder="{{ placeholder or 'Digite a descrição do serviço' }}"
+    class="input-descricao"
+    required
+  >{{ value or '' }}</textarea>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_descricao.css') }}">

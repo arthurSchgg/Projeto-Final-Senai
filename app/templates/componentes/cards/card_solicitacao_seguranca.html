@@ -1,0 +1,17 @@
+<div class="solicitacao-card">
+    <div class="header">
+        <span class="id-solicitacao">Solicitação Segurança {{ solicitacao.id }}</span>
+        <span class="status {{ solicitacao.status | lower }}">{{ solicitacao.status }}</span>
+    </div>
+    <div class="content">
+        <p><strong>Solicitante:</strong> {{ solicitacao.solicitante }}</p>
+        <p><strong>Serviço ID:</strong> {{ solicitacao.servico_id }}</p>
+        <p><strong>Data de Início:</strong> {{ solicitacao.dat-inicio }}</p>
+        <p><strong>Área de Atuação:</strong> {{ solicitacao.area_atuacao }}</p>
+        <p><strong>Turno:</strong> {{ solicitacao.turno }}</p>
+    </div>
+    <div class="actions">
+        <button class="btn-cancelar">Cancelar</button>
+        <button class="btn-aceitar">Aceitar</button>
+    </div>
+</div>

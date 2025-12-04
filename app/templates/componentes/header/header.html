@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="{{ url_for('static', filename='images/fluxee2.png') }}" alt="Logo Fluxeé">
+    </a>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="{{ url_for('solicitacoes') }}">Solicitações</a></li>
+
+        <!-- Dropdown clicável -->
+        <li class="dropdown_gestao">
+          <a href="#" class="dropbtn">
+            Gestão <span class="arrow"></span>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="{{ url_for('usuarios') }}">Usuários</a></li>
+            <li><a href="{{ url_for('gestao') }}">Produtos</a></li>
+            <li><a href="{{ url_for('gestao_servico') }}">Serviços</a></li>
+          </ul>
+        </li>
+
+        
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- Link para o CSS do header -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+<script src="{{ url_for('static', filename='js/dropdown_header.js') }}"></script>
+

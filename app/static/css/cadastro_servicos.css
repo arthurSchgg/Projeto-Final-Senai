@@ -1,0 +1,179 @@
+/* ======= FUNDO DA PÁGINA ======= */
+body {
+    background-color: #FFF6F0; /* mesmo fundo da página de cards */
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======= CONTAINER PRINCIPAL ======= */
+.container-produto {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* ======= BOX BRANCA CENTRAL ======= */
+.box-branca {
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 1200px;
+    min-height: 568px;
+    border-radius: 8px;
+    padding: 31px 20px 20px 47px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    position: relative;
+}
+
+
+/* ======= TÍTULO DA BOX ======= */
+.titulo-box {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ======= CONTEÚDO SOBRE A BOX ======= */
+.conteudo-sobre-box {
+    display: flex;
+    justify-content: center;
+    gap: 110px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 80px;
+    margin-left: -70px;
+}
+
+/* ======= LADO ESQUERDO: IMAGEM ======= */
+.campo-imagem {
+    flex: 0 0 322px;
+    margin-left: 55px;
+}
+
+.image-preview {
+    width: 342px;
+    height: 380px;
+    background-color: #F8F8F8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.adicionar-imagem-texto {
+    color: #5CACC4;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* ======= LADO DIREITO: CAMPOS ======= */
+.campos-direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: calc(100% - 322px - 100px);
+}
+
+/* ======= LINHAS DE CAMPOS ======= */
+.linha-1, .linha-3 {
+    display: flex;
+    gap: 45px;
+}
+
+
+/* ======= LINHA DE BOTÕES ======= */
+.linha-botao {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-right: -120px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+
+/* Linha que contém Tipo de Veículo e os dois menores */
+.linha-transporte .linha {
+    display: flex;
+    margin-top: 10px;
+    gap: 80px; /* espaço entre Tipo de Veículo e grupo-menores */
+    align-items: flex-start; /* alinha todos ao topo */
+}
+
+/* Tipo de Veículo maior */
+.tipo-veiculo {
+    flex: 2; /* ocupa mais espaço */
+}
+
+/* Grupo de campos menores */
+.grupo-menores {
+    display: flex;
+    gap: 35px; /* espaço entre os dois campos */
+    flex: 1;   /* ocupa o restante da linha ao lado do Tipo de Veículo */
+}
+
+/* Cada campo dentro do grupo ocupa metade */
+.grupo-menores .campo {
+    flex: 1;
+}
+
+
+
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 1200px) {
+    .conteudo-sobre-box {
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .campo-imagem {
+        flex: 0 0 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .conteudo-sobre-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .campo-imagem {
+        width: 80%;
+    }
+
+    .campos-direita {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .box-branca {
+        min-height: 900px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box-branca {
+        border-radius: 0;
+        padding: 20px;
+    }
+}
+
+
+
+
+
+

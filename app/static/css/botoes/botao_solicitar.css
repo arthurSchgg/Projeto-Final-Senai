@@ -1,0 +1,16 @@
+.btn-solicitar {
+    width: 125px;              
+    height: 41px;              
+    background-color: #E57C3A; 
+    color: #FFFFFF;            
+    border: none;              
+    font-size: 16px;           
+    cursor: pointer;
+    border-radius: 10px;   
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-solicitar:hover {
+    background-color: #d46e2f; 
+    transform: translateY(-1px);
+}

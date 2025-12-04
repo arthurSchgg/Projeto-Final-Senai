@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ id or 'data_entrada' }}">Data de Entrada</label>
+  <input 
+    type="date" 
+    id="{{ id or 'data_entrada' }}" 
+    name="{{ name or 'data_entrada' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-data"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_data_entrada.css') }}">

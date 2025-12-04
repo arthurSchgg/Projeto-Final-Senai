@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="{{ id or 'email' }}">E-mail</label>
+  <input 
+    type="email" 
+    id="{{ id or 'email' }}" 
+    name="{{ name or 'email' }}" 
+    placeholder="{{ placeholder or 'Digite seu e-mail' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-email"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_email.css') }}">

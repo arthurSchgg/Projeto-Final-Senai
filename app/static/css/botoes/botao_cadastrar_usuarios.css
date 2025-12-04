@@ -1,0 +1,16 @@
+.btn-cadastrar-usuarios {
+    width: 145px;              /* largura */
+    height: 48px;              /* altura */
+    background-color: #E57C3A; /* cor de fundo */
+    color: #FFFFFF;            /* cor da letra */
+    border: none;              /* sem borda */
+    font-size: 16px;           /* ajustável se quiser maior */
+    cursor: pointer;
+    border-radius: 10px;   
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cadastrar-usuarios:hover {
+    background-color: #d46e2f; /* hover mais escuro */
+    transform: translateY(-1px);
+}

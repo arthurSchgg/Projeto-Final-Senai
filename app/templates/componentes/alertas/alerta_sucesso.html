@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/diversos/alerta_sucesso.css') }}">
+
+
+<div class="toast-container">
+    {% if get_flashed_messages(with_categories=True) %}
+        {% for categoria, mensagem in get_flashed_messages(with_categories=True) %}
+            <div class="toast {{ categoria }}">
+                <span>{{ mensagem }}</span>
+                <button class="btn-fechar">&times;</button>
+                <div class="progress"></div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+
+<script src="{{ url_for('static', filename='js/alerta_sucesso.js') }}"></script>
+
+

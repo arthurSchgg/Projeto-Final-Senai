@@ -1,0 +1,18 @@
+<div class="solicitacao-card">
+    <div class="header">
+        <span class="id-solicitacao">Solicitação Produto {{ solicitacao.id }}</span>
+        <span class="status {{ solicitacao.status | lower }}">{{ solicitacao.status }}</span>
+    </div>
+    <div class="content">
+        <p><strong>Nome:</strong> {{ solicitacao.nome }}</p>
+        <p><strong>Disciplina:</strong> {{ solicitacao.disciplina_nome }}</p>
+        <p><strong>Produto:</strong> {{ solicitacao.produto_nome }}</p>
+        <p><strong>Quantidade:</strong> {{ solicitacao.quantidade }}</p>
+        <p><strong>Data Limite:</strong> {{ solicitacao.data_limite }}</p>
+        <p><strong>Finalidade:</strong> {{ solicitacao.finalidade }}</p>
+    </div>
+    <div class="actions">
+        <button class="btn-cancelar">Cancelar</button>
+        <button class="btn-aceitar">Aceitar</button>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ id or 'horario_chegada' }}">Horário de Chegada</label>
+  <input 
+    type="time" 
+    id="{{ id or 'horario_chegada' }}" 
+    name="{{ name or 'horario_chegada' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-horario-chegada"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_horario_chegada.css') }}">

@@ -1,0 +1,141 @@
+/* Container principal */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Lado da imagem */
+.login-image {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-image img {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 140%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Lado do formulário */
+.login-form {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 30px;
+}
+
+.login-form .logo {
+  max-width: 180px;
+  margin-bottom: 76px;
+}
+
+.login-form .form-group {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+.login-form .form-label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.login-form .form-control {
+  width: 363px;   /* largura fixa */
+  height: 50px;   /* altura fixa */
+  padding: 0 12px; /* mantém espaçamento interno horizontal */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* arredondado */
+  box-sizing: border-box; /* importante para que width inclua padding */
+}
+
+.login-form .btn {
+  width: 180px;
+  height: 49px;
+  background-color: #E57C3A; /* cor laranja */
+  color: white;
+  border: none;
+  border-radius: 10px; /* arredondado */
+  cursor: pointer;
+  display: block;
+  margin: 0 auto; /* centraliza horizontalmente */
+  margin-top: 80px;
+}
+
+.login-form .cadastro-text {
+  margin-right: -28px;
+  text-align: right;
+}
+
+.login-form .cadastro-text a {
+  color: #E57C3A;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Campos e botão do cadastro */
+.login-form .form-control {
+  width: 383px;
+  height: 50px;
+  padding: 0 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Responsividade */
+
+@media (max-width: 1400px) {
+  .login-form .form-control {
+    width: 320px; /* diminui os inputs */
+  }
+
+  .login-form .cadastro-text {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-image {
+    height: 250px;
+    flex: none;
+  }
+
+  .login-image img {
+    width: 120%;
+    left: -10%;
+    height: 100%;
+  }
+
+  .login-form {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  
+}
+
+@media (max-width: 576px) {
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    padding: 20px 15px;
+  }
+}

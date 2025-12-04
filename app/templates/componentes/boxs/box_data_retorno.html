@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ id or 'data_retorno' }}">Data de Retorno</label>
+  <input 
+    type="date" 
+    id="{{ id or 'data_retorno' }}" 
+    name="{{ name or 'data_retorno' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-data-retorno"
+  >
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_data_retorno.css') }}">

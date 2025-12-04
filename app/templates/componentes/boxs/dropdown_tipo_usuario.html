@@ -1,0 +1,25 @@
+<div class="dropdown">
+  <label for="{{ id or 'tipo_usuario' }}">{{ label or 'Tipo de Usuário' }}</label>
+
+  <div class="dropdown-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">
+      {% if selected_value %}
+        {{ selected_value }}
+      {% else %}
+        Selecione...
+      {% endif %}
+    </span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdown-content">
+    {% for tipo in tipos_usuario %}
+        <div class="dropdown-item" data-value="{{ tipo }}">{{ tipo }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'tipo_usuario' }}" id="{{ id or 'tipo_usuario' }}" value="{{ selected_value or '' }}">
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_tipo_usuario.css') }}">
+<script src="{{ url_for('static', filename='js/dropdown_tipo_usuario.js') }}"></script>

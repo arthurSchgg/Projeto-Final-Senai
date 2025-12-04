@@ -1,0 +1,726 @@
+/* Importa a fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #FFF6F0;
+}
+
+/* Wrapper para os cards - controla a posição vertical */
+.cards-wrapper {
+  display: flex;
+  justify-content: center;  
+  padding-top: 380px;       
+}
+
+/* Container que organiza os cards lado a lado */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+/* Estilo dos cards */
+.card {
+  width: 230px;
+  height: 165px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card p {
+  margin: 8px 0 0 0;
+  font-size: 1.2rem;        /* tamanho da fonte */
+  color: #E57C3A !important;        /* cor do texto */
+  font-weight: 600;        /* opcional, para ficar mais destacado */
+  /* font-weight: 800; */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card img.logo {
+  width: 50px;   /* largura do ícone */
+  height: 50px;  /* altura do ícone */
+  object-fit: contain; /* mantém a proporção da imagem */
+  margin-bottom: 15px;
+}
+
+a.card {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* mantém a cor do texto */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Container geral da seção do produto ===== */
+.container-produto {
+    position: relative;
+    width: 100%;
+    max-width: 1800px; 
+    height: auto;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== Box branca de fundo ===== */
+.box-branca {
+    position: fixed;       
+    top: 50%;              
+    left: 50%;             
+    transform: translate(-50%, -50%); 
+    width: 80%;           /* diminui a largura da box */
+    max-width: 1400px;     
+    min-height: 638px;     
+    background-color: #ffffff;
+    border-radius: 8px;
+    z-index: 1;
+    padding: 31px 20px 20px 47px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Conteúdo sobre a box ===== */
+.conteudo-sobre-box {
+    margin-top: 53px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: nowrap; /* evita quebrar a linha */
+    gap: 110px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+
+/* ===== Campo de imagem (lado esquerdo) ===== */
+.campo-imagem {
+    flex: 0 0 322px;
+}
+
+.campo-imagem label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Caixa de pré-visualização */
+.image-preview {
+    width: 342px;
+    height: 380px;
+    /* border: 1px solid #ccc; */
+    margin-bottom: 10px;
+    background-color: #F8F8F8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-preview span {
+    color: #aaa;
+}
+
+/* Input file escondido */
+.campo-imagem input[type="file"] {
+    display: none;
+}
+
+/* Texto clicável "Adicionar imagem" */
+.adicionar-imagem-texto {
+    color: #5CACC4;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+
+
+
+
+
+.campo-imagem {
+    flex: 0 0 322px; /* largura fixa da imagem */
+    margin-left: 55px;
+}
+
+.campos-direita {
+    flex: 1; /* ocupa o restante do espaço disponível */
+    max-width: calc(100% - 322px - 100px); /* largura da imagem (322px) + gap de 100px */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Primeira linha: Nome + Quantidade + Unidade de Medida */
+.linha-1 {
+    display: flex;
+    gap: 45px;
+    flex-wrap: nowrap; /* não deixa quebrar para a linha de baixo */
+}
+
+/* Agrupar quantidade + unidade de medida */
+.quantidade-unid {
+    display: flex;
+    gap: 50px;
+}
+
+/* Segunda linha: Tipo + Fornecedor */
+.linha-2 {
+    display: flex;
+    gap: 78px;
+}
+
+/* Terceira linha: Data de entrada ocupa toda a largura */
+.linha-3 {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.titulo-box{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.linha-botao {
+    width: 97%;
+    text-align: right;   /* mantém o botão no canto direito */
+    margin-top: 110px;    /* aumenta o espaço entre os inputs e o botão */
+    gap: 25px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+
+
+/* ======== RESPONSIVIDADE ======== */
+
+/* Telas médias (tablets) */
+@media (max-width: 1200px) {
+    .conteudo-sobre-box {
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .campo-imagem {
+        flex: 0 0 250px;
+    }
+}
+
+/* Telas pequenas (celulares e tablets verticais) */
+@media (max-width: 768px) {
+    .container-produto {
+        padding: 10px;
+    }
+
+    .conteudo-sobre-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .campo-imagem {
+        flex: 0 0 auto;
+        width: 80%;
+    }
+
+    .campos-direita {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .box-branca {
+        min-height: 900px; /* aumenta altura para caber conteúdo empilhado */
+    }
+}
+
+/* Telas muito pequenas (smartphones estreitos) */
+@media (max-width: 480px) {
+    .conteudo-sobre-box {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .box-branca {
+        border-radius: 0;
+    }
+}
+
+
+
+
+/* ============================
+   GESTÃO – LAYOUT GERAL
+   ============================ */
+
+   .gestao-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+/* Box branca */
+.gestao-box {
+    width: 1850px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+/* Título */
+.gestao-box-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Linha da tabela com espaçamento entre os dados */
+.gestao-linha {
+    display: flex;            /* Coloca os itens lado a lado */
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;   /* substitui aquela linha cinza */
+    height: auto;             /* remove o height 1px */
+    background: transparent;  /* remove a barra cinza */
+}
+
+/* Remove margem da última */
+.gestao-linha:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Texto sobre a linha */
+.linha-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 0 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+}
+
+/* Botão à direita */
+.gestao-botao {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/* Cabeçalho */
+.gestao-cabecalho {
+    display: flex;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #888;
+    font-size: 14px;
+}
+
+.coluna-produto { width: 26%; text-align: left; }
+.coluna-categoria { width: 23%; text-align: center;}
+.coluna-estoque { width: 15%; text-align: center; }
+.coluna-fornecedor { width: 20%; text-align: center; }
+.coluna-acoes { width: 10%; text-align: right; }
+
+/* Linha dinâmica */
+.gestao-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 15px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.item-acoes {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-acao img {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-acao img:hover {
+    transform: scale(1.1);
+}
+
+
+.linha-acoes img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.linha-produto { width: 26%; }
+.linha-categoria { width: 23%; text-align: center; }
+.linha-estoque { width: 15%; text-align: center; }
+.linha-fornecedor { width: 20%; text-align: center; }
+
+.linha-acoes {
+    width: 15%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end; /* mantém os botões à direita */
+    align-items: center;
+    gap: 25px; /* espaçamento entre os botões */
+}
+
+.gestao-linha.linha-dinamica {
+    padding: 30px 15px;
+}
+
+
+.linha-titulos {
+    width: 100%;
+    height: 1px;        /* espessura da linha */
+    background: #ccc;   /* cor da linha */
+}
+
+
+/* Responsividade */
+
+/* Telas muito largas */
+@media (max-width: 2100px) {
+    .gestao-box {
+        width: 1600px;  /* ajuste que quiser */
+    }
+}
+
+@media (max-width: 1800px) {
+    .gestao-box {
+        width: 1350px;  /* ajuste progressivo */
+    }
+}
+
+@media (max-width: 1600px) {
+    .gestao-box {
+        width: 1200px;  /* ajuste progressivo */
+    }
+}
+
+
+@media (max-width: 1450px) {
+    .gestao-box {
+        width: 1100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .gestao-box {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .gestao-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gestao-box {
+        width: 90%;
+        height: auto;
+    }
+
+    .gestao-botao {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .gestao-box {
+        padding: 25px;
+    }
+
+    .gestao-box-title {
+        text-align: center;
+    }
+
+    .gestao-linha {
+        margin-bottom: 45px;
+    }
+}
+
+
+
+/* Container da paginação */
+.paginacao {
+    margin-top: 20px;         /* espaço acima da paginação */
+    text-align: right;       /* centraliza os números */
+    font-family: Arial, sans-serif;
+}
+
+/* Links de página */
+.paginacao a {
+    display: inline-block;
+    margin: 0 5px;            /* espaço entre os números */
+    padding: 6px 12px;        /* tamanho do botão */
+    background: #eee;          /* cor de fundo */
+    color: #E57C3A;               
+    text-decoration: none;     /* remove underline */
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+/* Hover nos links */
+.paginacao a:hover {
+    background: #ccc;
+}
+
+/* Página ativa */
+.paginacao .ativo {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 6px 12px;
+    background: #E57C3A;         
+    color: #fff;               /* texto branco */
+    border-radius: 4px;
+}
+
+/* Opcional: setas “Anterior” e “Próximo” */
+.paginacao a.prev,
+.paginacao a.next {
+    font-weight: bold;
+}
+
+
+
+/* ==========================
+   MODAL DE CONFIRMAÇÃO
+   ========================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    max-width: 50%;
+    max-height: 80%;
+    border: 2px solid #fff;
+}
+
+.botoes-modal {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    justify-content:center;
+    /* justify-content: space-around; */
+}
+
+.botoes-modal button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px
+}
+
+#btn-cancelar {
+    background: #D9D9D9;
+    color: #333;
+}
+
+#btn-confirmar {
+    background: #E57C3A;
+    color: #fff;
+}
+
+
+
+/* PAGINAÇÃO NO CANTO DIREITO */
+.paginacao {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.paginacao a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+}
+
+.paginacao .ativo {
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.produto-img, .produto-img-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.produto-img {
+    object-fit: cover;
+    border: 1px solid #D9D9D9;
+}
+
+.produto-img-placeholder {
+    background-color: #ccc; /* cinza claro */
+}
+
+
+/* Modal básico */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+}
+
+
+
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.modal {
+    display: none; /* escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* sombra */
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+/* X para fechar modal */
+.fechar {
+    position: absolute; /* necessário */
+    top: 10px;          /* distância do topo do modal */
+    right: 35px;        /* distância da direita do modal */
+    font-size: px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    z-index: 10;        /* garante que fique acima de tudo */
+}
+
+.fechar:hover {
+    color: rgb(124, 124, 124);
+}
+
+
+.categoria {
+    display: none; /* todas começam escondidas */
+}

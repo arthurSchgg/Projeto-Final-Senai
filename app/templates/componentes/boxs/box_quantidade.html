@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label for="{{ id or 'quantidade' }}">Quantidade</label>
+  <input 
+    type="number" 
+    id="{{ id or 'quantidade' }}" 
+    name="{{ name or 'quantidade' }}" 
+    placeholder="{{ placeholder or 'Informe a qtd' }}" 
+    value="{{ value or '' }}" 
+    required
+    class="input-quantidade"
+  >
+</div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_quantidade.css') }}">
+<script src="{{ url_for('static', filename='js/box_quantidade.js') }}"></script>

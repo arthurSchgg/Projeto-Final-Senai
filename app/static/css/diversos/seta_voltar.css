@@ -1,0 +1,12 @@
+.seta-voltar {
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center;
+    transition: transform 0.2s ease;
+    margin-left: 64px;
+    margin-top: 46px;
+}
+
+.seta-voltar:hover {
+    transform: translateX(3px);
+}

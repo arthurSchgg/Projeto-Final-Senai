@@ -1,0 +1,188 @@
+.solicitacoes-container {
+    width: 80%;
+    margin-inline: auto ;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    justify-content: center;
+}
+
+.solicitacao-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for cards */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.solicitacao-card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.solicitacao-card .id-solicitacao {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.solicitacao-card .status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.solicitacao-card .status.aguardando {
+    background-color: #ffc107; /* Yellow for awaiting */
+}
+.solicitacao-card .status.cancelado {
+    background-color: #ff4b48; /* Yellow for awaiting */
+}
+.solicitacao-card .status.concluido {
+    background-color: #8cd19d; /* Yellow for awaiting */
+}
+
+/* Add more status styles if needed, e.g., .status.aceito { background-color: #28a745; } */
+
+.solicitacao-card .content {
+    margin-bottom: 15px;
+}
+
+.solicitacao-card .nome-solicitacao {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.solicitacao-card .descricao-solicitacao .label {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.solicitacao-card .descricao-solicitacao p {
+    font-size: 1em;
+    color: #444;
+    line-height: 1.4;
+}
+
+.solicitacao-card .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto; /* Pushes buttons to the bottom */
+}
+
+.solicitacao-card .btn-cancelar,
+.solicitacao-card .btn-aceitar {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.solicitacao-card .btn-cancelar {
+    background-color: #6c757d; /* Grey */
+    color: #fff;
+}
+
+.solicitacao-card .btn-cancelar:hover {
+    background-color: #5a6268;
+}
+
+.solicitacao-card .btn-aceitar {
+    background-color: #fd7e14; /* Orange from image */
+    color: #fff;
+}
+
+.solicitacao-card .btn-aceitar:hover {
+    background-color: #e66c0d;
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    max-width: 50%;
+    max-height: 80%;
+    border: 2px solid #fff;
+}
+
+.modal-botoes {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.btn-confirmar {
+    background: #E57C3A;
+    color: #fff;
+}
+
+.modal-botoes button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.link-arquivados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(229, 124, 58, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: fixed;
+    right: 150px;
+    top: 430px;
+    z-index: 1000;
+}
+
+/* Hover elegante */
+.link-arquivados:hover {
+    transform: scale(1.05);                       /* aumenta levemente */
+    background-color: rgba(233, 129, 60, 0.226);  /* fundo um pouco mais intenso */
+}
+
+
+@media (max-width: 2100px) {
+    .link-arquivados{
+        right: 80px;
+        top: 430px; 
+    }
+}
+
+@media (max-width: 1400px) {
+    .link-arquivados {
+        position: fixed; 
+    top: 430px;   
+        right: 200px;    
+        z-index: 2000;   
+        transform: none; 
+    }
+}

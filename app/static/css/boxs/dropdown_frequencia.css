@@ -1,0 +1,87 @@
+/* Container */
+.dropdown-frequencia {
+  margin-top: 30px;
+  position: relative;
+  width: 383px;
+}
+
+/* Botão principal */
+.dropdown-frequencia-btn {
+  width: 100%;
+  height: 47px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Quando abre */
+.dropdown-frequencia-btn.open {
+  border-color: #E57C3A;
+  box-shadow: 0 2px 8px rgba(229, 124, 58, 0.4);
+}
+
+/* Seta */
+.dropdown-frequencia-btn .arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #555;
+  border-bottom: 2px solid #555;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+/* Seta quando aberto */
+.dropdown-frequencia-btn.open .arrow {
+  transform: rotate(135deg);
+}
+
+/* Conteúdo */
+.dropdown-frequencia-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 108%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Itens */
+.dropdown-frequencia-item {
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hover */
+.dropdown-frequencia-item:hover {
+  background-color: #fff2de;
+  color: #222;
+}
+
+/* Label */
+.dropdown-frequencia label {
+
+  margin-right: 320px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 6px;
+  display: block;
+}

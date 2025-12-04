@@ -1,0 +1,13 @@
+{% macro box(field) %}
+<div class="form-group">
+  {{ field.label(class="form-label") }}
+  {{ field(class="form-control", placeholder="Digite seu e-mail") }}
+</div>
+{% endmacro %}
+
+{% macro box(field, placeholder="") %}
+<div class="form-group">
+  {{ field.label(class="form-label") }}
+  {{ field(class="form-control", placeholder=placeholder) }}
+</div>
+{% endmacro %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    {% include 'componentes/header/header.html' %}
+    {% include 'componentes/titulos/seta_voltar.html' %}
+
+    <div class="container-produto">
+        <div class="box-branca">
+
+            <h2 class="titulo-box">Editar Produto</h2>
+
+            <!-- FORM COMEÇA AQUI -->
+            <form action="{{ url_for('editar_produto', id=produto.id) }}" method="POST" enctype="multipart/form-data">
+
+                <div class="conteudo-sobre-box">
+
+                    <div class="campo-imagem">
+                        <div class="image-preview" id="imagePreview">
+                            {% if produto.imagem %}
+                                <img src="{{ url_for('static', filename='uploads/produtos/' + produto.imagem) }}" alt="Imagem do produto" style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                            {% else %}
+                                <span>Preview</span>
+                            {% endif %}
+                        </div>
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="display:none;">
+                        <div class="adicionar-imagem-texto" id="adicionarImagem">
+                            {% if produto.imagem %}
+                                Alterar imagem
+                            {% else %}
+                                Adicionar imagem
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="campos-direita">
+
+                        <!-- Linha 1 -->
+                        <div class="linha-1">
+                            <div class="campo nome">
+                                {% set value = produto.nome %}
+                                {% include 'componentes/boxs/box_nome.html' %}
+                            </div>
+
+                            <div class="quantidade-unid">
+                                <div class="campo quantidade">
+                                    {% set value = produto.quantidade %}
+                                    {% include 'componentes/boxs/box_quantidade.html' %}
+                                </div>
+
+                                <div class="campo unidade-medida">
+                                    {% set label = 'Unid. Medida' %}
+                                    {% set name = 'unidade_medida' %}
+                                    {% set id = 'unidade_medida' %}
+                                    {% set options = unidades_medida %}
+                                    {% set selected_value = produto.unidade_medida_id %}
+                                    {% include 'componentes/boxs/box_unidade_medida.html' %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Linha 2 -->
+                        <div class="linha-2">
+                            <div class="campo tipo-produto">
+                                {% set label = 'Tipo de Produto' %}
+                                {% set name = 'tipo' %}
+                                {% set id = 'tipo' %}
+                                {% set options = tipos_produto %}
+                                {% set selected_value = produto.tipo_id %}
+                                {% include 'componentes/boxs/dropdown_tipo.html' %}
+                            </div>
+
+                            <div class="campo fornecedor">
+                                {% set label = 'Fornecedor' %}
+                                {% set name = 'fornecedor' %}
+                                {% set id = 'fornecedor' %}
+                                {% set options = fornecedores %}
+                                {% set selected_value = produto.fornecedor_id %}
+                                {% include 'componentes/boxs/dropdown_fornecedor.html' %}
+                            </div>
+                        </div>
+
+                        <!-- Linha 3 -->
+                        <div class="linha-3">
+                            <div class="campo data-entrada">
+                                {% set value = produto.data_entrada.strftime('%Y-%m-%d') if produto.data_entrada else '' %}
+                                {% include 'componentes/boxs/box_data_entrada.html' %}
+                            </div>
+                        </div>
+
+                    </div> <!-- fecha campos direita -->
+
+                </div> <!-- fecha conteudo -->
+
+                <!-- Botões dentro do FORM -->
+                <div class="linha-botao">
+                    {% set texto = "Voltar" %}
+                    {% set url_destino = "/gestao" %}
+                    {% include 'componentes/botoes/botao_voltar.html' %}
+
+                    {% set texto = "Atualizar" %}
+                    {% include 'componentes/botoes/botao_cadastrar_produto.html' %}
+
+                </div>
+
+            </form>
+            <!-- FORM TERMINA AQUI -->
+
+        </div>
+
+    </div> <!-- fecha .container-produto -->
+
+<script src="{{ url_for('static', filename='js/cadastrar_produto.js') }}"></script>
+
+</body>
+</html>

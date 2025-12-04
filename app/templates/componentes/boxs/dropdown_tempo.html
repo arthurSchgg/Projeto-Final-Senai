@@ -1,0 +1,20 @@
+<div class="dropdown">
+  <label for="{{ id or 'tempo' }}">{{ label or 'Tempo' }}</label>
+
+  <div class="dropdown-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">Selecione...</span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdown-content">
+    {% for t in tempos %}
+        <div class="dropdown-item" data-value="{{ t }}">{{ t }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'tempo' }}" id="{{ id or 'tempo' }}" value="">
+</div>
+
+<!-- ver se da certo com o css e js do outro -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_tempo.css') }}"> 
+<script src="{{ url_for('static', filename='js/dropdown_tipo_usuario.js') }}"></script>

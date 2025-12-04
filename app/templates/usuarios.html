@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Usuários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gestao_usuarios.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    <!-- HEADER -->
+    {% include 'componentes/header/header.html' %}
+
+    <!-- TÍTULO -->
+    {% with texto="GESTÃO DE USUÁRIOS" %}
+        {% include 'componentes/titulos/titulo.html' %}
+    {% endwith %}
+
+    <!-- BOTÃO DE ADICIONAR USUÁRIO -->
+    {% include 'componentes/botoes/botao_gestao_add_usuarios.html' %}
+
+    <!-- CONTAINER GERAL -->
+    <div class="gestao-container">
+
+        <!-- BOX BRANCA -->
+        <div class="gestao-box">
+
+            <h2 class="gestao-box-title">Lista de Usuários</h2>
+
+            <!-- TABELA DE USUÁRIOS -->
+            <div class="gestao-tabela">
+
+                <!-- Cabeçalho das colunas -->
+                <div class="gestao-cabecalho">
+                    <span class="coluna-usuario">NOME</span>
+                    <span class="coluna-tipo">TIPO</span>
+                    <span class="coluna-email">EMAIL</span>
+                    <span class="coluna-telefone">TELEFONE</span>
+                </div>
+
+                <div class="linha-titulos"></div>
+
+                {% for u in usuarios %}
+                    <div class="gestao-linha linha-dinamica">
+                        <span class="linha-usuario">
+                            {% if u.imagem_perfil %}
+                                <img src="{{ url_for('static', filename='uploads/usuarios/' + u.imagem_perfil) }}" 
+                                    alt="{{ u.nome }}" class="produto-img">
+                            {% else %}
+                                <div class="produto-img-placeholder"></div>
+                            {% endif %}
+                            {{ u.nome }}
+                        </span>
+                        <span class="linha-tipo">{{ u.tipo_usuario }}</span>
+                        <span class="linha-email">{{ u.email }}</span>
+                        <span class="linha-telefone">{{ u.telefone }}</span>
+                        <span class="linha-acoes">
+                            <a href="{{ url_for('editar_usuario', id=u.id) }}" class="btn-edit">
+                                <img src="{{ url_for('static', filename='icons/edit.png') }}" alt="editar">
+                            </a>
+                            <a href="javascript:void(0);" 
+                            class="btn-delete" 
+                            data-nome="{{ u.nome }}" 
+                            data-link="{{ url_for('deletar_usuario', id=u.id) }}">
+                                <img src="{{ url_for('static', filename='icons/delete.png') }}" alt="excluir">
+                            </a>
+                        </span>
+                    </div>
+
+                {% endfor %}
+
+                {% if mostrar_paginacao %}
+                <div class="paginacao">
+                    {% if pagination.has_prev %}
+                        <a href="{{ url_for('usuarios', page=pagination.prev_num) }}">&laquo; Anterior</a>
+                    {% endif %}
+
+                    {% for p in range(1, pagination.pages + 1) %}
+                        {% if p == pagina_atual %}
+                            <span class="ativo">{{ p }}</span>
+                        {% else %}
+                            <a href="{{ url_for('usuarios', page=p) }}">{{ p }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if pagination.has_next %}
+                        <a href="{{ url_for('usuarios', page=pagination.next_num) }}">Próximo &raquo;</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+            </div>            
+
+        </div> <!-- Fim gestao-box -->
+
+    </div> <!-- Fim gestao-container -->
+
+    <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+    <div id="modal-excluir" class="modal">
+        <div class="modal-conteudo">
+            <p id="mensagem-excluir">Tem certeza que deseja excluir este usuário?</p>
+            <div class="botoes-modal">
+                <button id="btn-cancelar">Cancelar</button>
+                <button id="btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="imagem-modal" class="modal">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="img-modal">
+        <div id="caption"></div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/box_confirmacao.js') }}"></script>
+</body>
+</html>

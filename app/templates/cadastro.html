@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "componentes/boxs/boxLogin.html" import box %}
+{% from "componentes/botoes/botaoLogin.html" import button %}
+
+{% block content %}
+<div class="login-container">
+  <!-- Lado da imagem -->
+  <div class="login-image">
+    <img src="{{ url_for('static', filename='images/fundo.png') }}" alt="Imagem ilustrativa">
+  </div>
+
+  <!-- Lado do formulário -->
+  <div class="login-form">
+    <img src="{{ url_for('static', filename='images/fluxee.png') }}" alt="Fluxee Logo" class="logo">
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <!-- Campos usando componente box -->
+      {{ box(form.nome, "Digite seu nome") }}
+      {{ box(form.email, "Digite seu e-mail") }}
+      {{ box(form.senha, "Digite sua senha") }}
+      {{ box(form.confirmacao, "Confirme sua senha") }}
+
+      <!-- Texto de cadastro -->
+      <p class="cadastro-text">
+        Já possui cadastro? <a href="{{ url_for('homepage') }}">Faça login</a>
+      </p>
+
+      <!-- Botão usando componente -->
+      {{ button(form.btnSubmit) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

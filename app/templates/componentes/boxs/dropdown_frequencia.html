@@ -1,0 +1,20 @@
+<div class="dropdown-frequencia">
+  <label for="{{ id or 'frequencia' }}">{{ label or 'Frequência' }}</label>
+
+  <div class="dropdown-frequencia-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">Selecione...</span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdown-frequencia-content">
+    {% for freq in frequencias %}
+      <div class="dropdown-frequencia-item" data-value="{{ freq }}">{{ freq }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'frequencia' }}" id="{{ id or 'frequencia' }}" value="">
+</div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_frequencia.css') }}">
+<script src="{{ url_for('static', filename='js/dropdown_frequencia.js') }}"></script>

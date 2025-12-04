@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/botoes/botaogestao.css') }}">
+
+
+<div class="container">
+  <div class="toggle-container">
+    <a href="{{ url_for('gestao') }}" class="toggle-btn {% if request.path == '/gestao/' %}active{% endif %}">Produto</a>
+    <a href="{{ url_for('gestao_servico') }}" class="toggle-btn {% if request.path == '/gestao_servico/' %}active{% endif %}">Serviço</a>
+  </div>
+</div>
+
+<!-- Chama o JS no fim do body -->
+<link rel="stylesheet" href="{{ url_for('static', filename='js/botaogestao.js') }}">
+

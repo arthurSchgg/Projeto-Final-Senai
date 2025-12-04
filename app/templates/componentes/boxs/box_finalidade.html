@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ id or 'nome' }}">Finalidade</label>
+  <textarea 
+    type="text" 
+    id="{{ id or 'finalidade' }}" 
+    name="{{ name or 'finalidade' }}" 
+    placeholder="{{ placeholder or 'Digite a finalidade' }}" 
+    value="{{ value or '' }}" 
+    class="input-finalidade"
+    ></textarea>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/box_finalidade.css') }}">

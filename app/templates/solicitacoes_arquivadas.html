@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitações Arquivadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/solicitacoes.css') }}">
+</head>
+<body>
+
+    {% include 'componentes/alertas/alerta_sucesso.html' %}
+    <!-- Inclui o header -->
+    {% include 'componentes/header/header.html' %}
+{% with texto="SOLICITAÇÕES ARQUIVADAS" %}
+        {% include 'componentes/titulos/titulo.html' %}
+    {% endwith %}
+
+ 
+
+    <div class="solicitacoes-container">
+        {% for solicitacao in solicitacoes %}
+            {% include 'componentes/cards/card_solicitacao.html' %}
+        {% endfor %}
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h3 id="modal-titulo-confirmacao">Confirmação</h3>
+            <p id="modal-mensagem-confirmacao"></p>
+            <div class="modal-botoes">
+                <button id="btn-confirmar-acao" class="btn-confirmar">Confirmar</button>
+                <button id="btn-cancelar-acao" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/solicitacoes_modal.js') }}"></script>
+</body>
+</html>

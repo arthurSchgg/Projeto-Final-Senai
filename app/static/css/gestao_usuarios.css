@@ -1,0 +1,349 @@
+/* ==========================
+   GESTÃO DE USUÁRIOS
+   ========================== */
+
+   html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #FFF6F0;
+}
+
+.gestao-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+/* Box branca */
+.gestao-box {
+    width: 1450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+/* Título */
+.gestao-box-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Linha da tabela com espaçamento entre os dados */
+.gestao-linha {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    background: transparent;
+}
+
+/* Remove margem da última */
+.gestao-linha:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Linha dinâmica */
+.gestao-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 15px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+/* Cabeçalho */
+.gestao-cabecalho {
+    display: flex;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Colunas */
+.coluna-usuario { width: 18%; text-align: left; }
+.coluna-tipo { width: 16%; text-align: center; }
+.coluna-email { width: 23%; text-align: center; }
+.coluna-telefone { width: 25%; text-align: center; }
+.coluna-acoes { width: 10%; text-align: right; }
+
+/* Linhas de dados */
+.linha-usuario { width: 18%; }
+.linha-tipo { width: 16%; text-align: center; }
+.linha-email { width: 23%; text-align: center; }
+.linha-telefone { width: 25%; text-align: center; }
+.linha-acoes { width: 20%; text-align: right; }
+
+.linha-acoes {
+    width: 15%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+}
+
+.gestao-linha.linha-dinamica {
+    padding: 30px 15px;
+}
+
+/* Linha separadora */
+.linha-titulos {
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+}
+
+/* Botão à direita */
+.gestao-botao {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Imagem do usuário */
+.produto-img, .produto-img-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.produto-img {
+    object-fit: cover;
+    border: 1px solid #D9D9D9;
+}
+
+.produto-img-placeholder {
+    background-color: #ccc;
+}
+
+/* Botões de ação */
+.linha-acoes img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Paginação */
+.paginacao {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.paginacao a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+}
+
+.paginacao .ativo {
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Modal de confirmação */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    max-width: 50%;
+    max-height: 80%;
+    border: 2px solid #fff;
+}
+
+.botoes-modal {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    justify-content:center;
+}
+
+.botoes-modal button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#btn-cancelar {
+    background: #D9D9D9;
+    color: #333;
+}
+
+#btn-confirmar {
+    background: #E57C3A;
+    color: #fff;
+}
+
+/* Responsividade */
+
+/* Telas muito largas */
+@media (max-width: 2100px) {
+    .gestao-box {
+        width: 1600px;  /* ajuste que quiser */
+    }
+}
+
+@media (max-width: 1800px) {
+    .gestao-box {
+        width: 1350px;  /* ajuste progressivo */
+    }
+}
+
+@media (max-width: 1600px) {
+    .gestao-box {
+        width: 1200px;  /* ajuste progressivo */
+    }
+}
+
+
+@media (max-width: 1450px) {
+    .gestao-box {
+        width: 1100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .gestao-box {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .gestao-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gestao-box {
+        width: 90%;
+        height: auto;
+    }
+
+    .gestao-botao {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .gestao-box {
+        padding: 25px;
+    }
+
+    .gestao-box-title {
+        text-align: center;
+    }
+
+    .gestao-linha {
+        margin-bottom: 45px;
+    }
+}
+
+
+.produto-img, .produto-img-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.produto-img {
+    object-fit: cover;
+    border: 1px solid #D9D9D9;
+}
+
+.produto-img-placeholder {
+    background-color: #ccc; /* cinza claro */
+}
+
+/* Modal básico */
+#imagem-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); /* fundo escuro */
+    justify-content: center;
+    align-items: center;
+}
+
+#imagem-modal .modal-conteudo {
+    margin: auto;
+    display: block;
+    max-height: 80%;      /* limita altura */
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+#imagem-modal .fechar {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#imagem-modal .fechar:hover {
+    color: #ccc;
+}
+
+#imagem-modal #caption {
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+

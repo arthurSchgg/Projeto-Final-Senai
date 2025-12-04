@@ -1,0 +1,143 @@
+/* ===== FONTE E FUNDOS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #FFF6F0; /* fundo salmão clarinho */
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.container-produto {
+    position: relative;
+    width: 100%;
+    max-width: 1800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== BOX BRANCA CENTRAL ===== */
+.box-branca {
+    position: fixed;          
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1250px;
+    min-height: 738px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    z-index: 1;
+    padding: 31px 20px 20px 47px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== TÍTULO ===== */
+.titulo-box {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px; /* espaço entre o título e o formulário */
+}
+
+/* ===== CONTEÚDO SOBRE A BOX ===== */
+.conteudo-sobre-box {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 110px;
+    align-items: flex-start;
+    justify-content:  center;
+    box-sizing: border-box;
+}
+
+.campos-direita {
+    flex: 1;
+    max-width: calc(100% - 322px - 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* espaçamento entre linhas do formulário */
+}
+
+/* Primeira linha: Nome + Disciplina */
+.linha-1 {
+    display: flex;
+    gap: 55px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+/* Segunda linha: Tipo + Data + Quantidade - caixas menores embaixo */
+.linha-2 {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espaçamento entre as caixas menores */
+    margin-bottom: 35px;
+}
+
+/* Terceira linha */
+.linha-3 {
+    display: flex;
+    gap: 45px;
+    margin-bottom: 0;
+}
+
+/* Remove a linha separadora da última linha */
+.linha-3 {
+    border-bottom: none;
+}
+
+
+
+
+/* Campos individuais */
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* ocupa o espaço disponível */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo-sobre-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .campos-direita {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .linha-1, .linha-2, .linha-3 {
+        flex-direction: column;
+        gap: 15px;
+        border-bottom: none; /* remove linhas separadoras em telas pequenas */
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .box-branca {
+        border-radius: 0;
+    }
+}
+
+/* Botões do formulário */
+.linha-botao {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+
+
+/* .campoData-entrada{
+     margin-left: 50px;
+     display: flex;
+     justify-content: flex-start;
+
+} */

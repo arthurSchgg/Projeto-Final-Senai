@@ -1,0 +1,42 @@
+<div class="solicitacao-card">
+    <div class="header">
+        <span class="id-solicitacao">Solicitação {{ solicitacao.id }} - {{ solicitacao.categoria }}</span>
+        <span class="status {{ solicitacao.status | lower }}">{{ solicitacao.status }}</span>
+    </div>
+    <div class="content">
+        <p><strong>Solicitante:</strong> {{ solicitacao.solicitante }}</p>
+        {% if solicitacao.categoria == "Transporte" %}
+            <p><strong>Data de Saída:</strong> {{ solicitacao.data_saida }}</p>
+            <p><strong>Data de Retorno:</strong> {{ solicitacao.data_retorno }}</p>
+        {% elif solicitacao.categoria == "Limpeza" %}
+            <p><strong>Tempo:</strong> {{ solicitacao.tempo }}</p>
+            <p><strong>Ambiente:</strong> {{ solicitacao.ambiente }}</p>
+            <p><strong>Frequência:</strong> {{ solicitacao.frequencia }}</p>
+        {% elif solicitacao.categoria == "Segurança" %}
+            <p><strong>Data de Início:</strong> {{ solicitacao.data_inicio }}</p>
+            <p><strong>Área de Atuação:</strong> {{ solicitacao.area_atuacao }}</p>
+            <p><strong>Turno:</strong> {{ solicitacao.turno }}</p>
+        {% elif solicitacao.categoria == "Produto" %}
+            <p><strong>Nome:</strong> {{ solicitacao.nome }}</p>
+            <p><strong>Finalidade:</strong> {{ solicitacao.finalidade }}</p>
+        {% endif %}
+    </div>
+    <div class="actions">
+        {% if solicitacao.status != "Concluido" and solicitacao.status != "Cancelado" %}
+        <button type="button" class="btn-cancelar open-confirmation-modal" 
+                data-solicitacao-id="{{ solicitacao.id }}" 
+                data-solicitacao-categoria="{{ solicitacao.categoria }}" 
+                data-new-status="Cancelado"
+                data-confirmation-message="Tem certeza que deseja cancelar esta solicitação (ID: {{ solicitacao.id }})?">
+            Cancelar
+        </button>
+        <button type="button" class="btn-aceitar open-confirmation-modal" 
+                data-solicitacao-id="{{ solicitacao.id }}" 
+                data-solicitacao-categoria="{{ solicitacao.categoria }}" 
+                data-new-status="Concluido"
+                data-confirmation-message="Tem certeza que deseja aceitar esta solicitação (ID: {{ solicitacao.id }})?">
+            Aceitar
+        </button>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,192 @@
+/* Importa a fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #FFF6F0;
+}
+
+/* ===== Container geral da seção do usuário ===== */
+.usuarios-container {
+    position: relative;
+    width: 100%;
+    max-width: 1800px; 
+    height: auto;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== Box branca de fundo ===== */
+.usuarios-box {
+    position: fixed;       
+    top: 50%;              
+    left: 50%;             
+    transform: translate(-50%, -50%); 
+    width: 80%;           
+    max-width: 1500px;     
+    min-height: 738px;     
+    background-color: #ffffff;
+    border-radius: 8px;
+    z-index: 1;
+    padding: 31px 20px 20px 47px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Conteúdo sobre a box ===== */
+.usuarios-conteudo {
+    margin-top: 53px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: nowrap; /* evita quebrar a linha */
+    gap: 110px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+/* ===== Campo de imagem (lado esquerdo) ===== */
+.campo-imagem {
+    flex: 0 0 322px; /* largura fixa da imagem */
+    margin-left: 55px;
+}
+
+.campo-imagem label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Caixa de pré-visualização */
+.image-preview {
+    width: 342px;
+    height: 380px;
+    margin-bottom: 10px;
+    background-color: #F8F8F8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-preview span {
+    color: #aaa;
+}
+
+/* Input file escondido */
+.campo-imagem input[type="file"] {
+    display: none;
+}
+
+/* Texto clicável "Adicionar imagem" */
+.adicionar-imagem-texto {
+    color: #5CACC4;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+/* ===== Campos à direita ===== */
+.usuarios-campos-direita {
+    flex: 1; /* ocupa o restante do espaço disponível */
+    max-width: calc(100% - 322px - 100px); /* largura da imagem (322px) + gap de 100px */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Primeira linha: Nome */
+.usuarios-linha-1 {
+    display: flex;
+    gap: 45px;
+    flex-wrap: nowrap;
+}
+
+/* Segunda linha: Data de nascimento + Gênero */
+.usuarios-linha-2 {
+    display: flex;
+    gap: 45px;
+}
+
+/* Terceira linha: Email + CPF */
+.usuarios-linha-3 {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+    gap: 80px;
+}
+
+/* Campos individuais */
+.usuarios-campo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título da box */
+.usuarios-titulo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Linha do botão */
+.usuarios-linha-botao {
+    width: 97%;
+    text-align: right;
+    margin-top: 110px;
+    gap: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+
+/* Telas médias (tablets) */
+@media (max-width: 1200px) {
+    .usuarios-conteudo {
+        gap: 30px;
+        padding: 30px;
+    }
+}
+
+/* Telas pequenas (celulares e tablets verticais) */
+@media (max-width: 768px) {
+    .usuarios-container {
+        padding: 10px;
+    }
+
+    .usuarios-conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .usuarios-campos-direita {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .usuarios-box {
+        min-height: 900px; /* aumenta altura para caber conteúdo empilhado */
+    }
+}
+
+/* Telas muito pequenas (smartphones estreitos) */
+@media (max-width: 480px) {
+    .usuarios-conteudo {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .usuarios-box {
+        border-radius: 0;
+    }
+}

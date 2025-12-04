@@ -1,0 +1,24 @@
+<div class="dropdown">
+  <label for="{{ id or 'genero' }}">{{ label or 'Gênero' }}</label>
+
+  <div class="dropdown-btn" onclick="toggleDropdown(this)">
+    <span class="selected-text">
+      {% if selected_value %}
+        {{ selected_value }}
+      {% else %}
+        Selecione...
+      {% endif %}
+    </span>
+    <span class="arrow"></span>
+  </div>
+
+  <div class="dropdown-content">
+    {% for genero in generos %}
+      <div class="dropdown-item" data-value="{{ genero }}">{{ genero }}</div>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" name="{{ name or 'genero' }}" id="{{ id or 'genero' }}" value="{{ selected_value or '' }}">
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boxs/dropdown_genero.css') }}">
