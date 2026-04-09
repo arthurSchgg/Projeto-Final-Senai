@@ -32,3 +32,15 @@ Além do foco em produtos, o sistema também possui módulos para gestão de ser
 - **Frontend:** HTML5, CSS3 (Templates Jinja2).
 - **Formulários:** Flask-WTF.
 - **Automação de Testes:** Robot Framework + Selenium.
+
+## 📖 Documentação Completa
+Para acessar o guia detalhado com prints, tutoriais de configuração e boas práticas, acesse o nosso manual oficial:
+
+👉 **[Acesse o Manual do Usuário no Notion](https://www.notion.so/Manual-do-Usu-rio-Fluxee-Sistema-de-Gest-o-de-Almoxarifado-2b0b27af51e38053b741f6875215e40c?source=copy_link)**
+
+## 👥 Equipe
+
+Este projeto foi desenvolvido por:
+* **Arthur Miguel Schlichting**
+* **Bianca Vaz**
+* **Lucas Schlei**
